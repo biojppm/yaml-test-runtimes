@@ -19,6 +19,7 @@ runtime requirements:
 * `yaml-test-parse-nimyaml`  -- https://github.com/flyx/NimYAML
 * `yaml-test-parse-npmyaml`  -- https://github.com/eemeli/yaml
 * `yaml-test-parse-pyyaml`   -- https://github.com/yaml/pyyaml
+* `yaml-test-parse-rapid`    -- https://github.com/biojppm/rapidyaml
 * `yaml-test-parse-ruamel`   -- https://pypi.org/project/ruamel.yaml/
 * `yaml-test-parse-snake`    -- https://bitbucket.org/snakeyaml/snakeyaml
 * `yaml-test-parse-yamlpp`   -- https://github.com/perlpunk/YAML-PP-p5

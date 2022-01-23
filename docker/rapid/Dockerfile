@@ -39,3 +39,6 @@ RUN cp \
 
 COPY bin/yaml-test-parse-rapid \
         /export/usr/local/bin/
+
+COPY bin/yaml-test-parse-rapidengine \
+        /export/usr/local/bin/
