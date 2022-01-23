@@ -75,10 +75,10 @@ TAG_PYYAML    := 6.0
 FROM_PYYAML   := yamlio/yaml-test-alpine:$(TAG_ALPINE)
 $(call add,PYYAML)
 
-REPO_RAPID    := https://github.com/biojppm/rapidyaml
-TAG_RAPID     := 4f03315c43fc488fd2489ea10bd9a9f63ff0baa9
-FROM_RAPID    := yamlio/yaml-test-alpine:$(TAG_ALPINE)
-$(call add,RAPID)
+REPO_RYML     := https://github.com/biojppm/rapidyaml
+TAG_RYML      := 2f0a5602512095a3186c1bc6e410ee46ce8b2353
+FROM_RYML     := yamlio/yaml-test-alpine:$(TAG_ALPINE)
+$(call add,RYML)
 
 # https://pypi.org/project/ruamel.yaml/
 TAG_RUAMEL    := 0.17.19

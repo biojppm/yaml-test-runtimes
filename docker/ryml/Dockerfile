@@ -16,14 +16,6 @@ RUN git init --quiet \
  && git reset --hard FETCH_HEAD \
  && true
 
-RUN git submodule add https://github.com/biojppm/c4fs ext/c4fs \
- && git submodule update --init --recursive \
- && true
-
-COPY patch /patch
-
-RUN patch -p1 < /patch
-
 RUN cmake \
         -S . \
         -B build \
@@ -42,5 +34,5 @@ RUN cp -fav \
         /export/usr/local/bin/ryml-yaml-events \
  && true
 
-COPY bin/yaml-test-parse-rapid \
+COPY bin/yaml-test-parse-ryml \
         /export/usr/local/bin/
