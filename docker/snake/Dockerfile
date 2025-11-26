@@ -7,8 +7,11 @@ RUN apk update \
  && apk add \
         maven \
         musl \
-        openjdk8 \
+        openjdk11 \
  && true
+
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+ENV PATH="$JAVA_HOME/bin:$PATH"
 
 WORKDIR /build
 
@@ -26,8 +29,7 @@ WORKDIR /java
 
 RUN version=$TAG \
  && version=${version#snakeyaml-} \
- && mvn clean compile -Dsnakeversion="$version" \
- && mvn assembly:single -Dsnakeversion="$version" \
+ && mvn clean package -DskipTests -Dsnakeversion="$version" \
  && true
 
 RUN mkdir -p /export/java \

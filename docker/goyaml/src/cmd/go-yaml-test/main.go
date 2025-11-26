@@ -2,22 +2,24 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
-	"io/ioutil"
 
-	"gopkg.in/yaml.v3"
+	"go.yaml.in/yaml/v4"
 )
 
 func main() {
-	data, _ := ioutil.ReadAll(os.Stdin)
-
-	t := yaml.NewTester(data)
-	var str *string
-	for {
-		str = t.NextEvent()
-		if str == nil {
-			break
-		}
-		fmt.Printf("%s\n", *str)
+	data, err := io.ReadAll(os.Stdin)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error reading input: %v\n", err)
+		os.Exit(1)
 	}
+
+	events, err := yaml.ParserGetEvents(data)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		os.Exit(1)
+	}
+
+	fmt.Print(events)
 }

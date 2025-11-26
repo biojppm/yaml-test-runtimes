@@ -7,14 +7,17 @@ RUN apk update \
  && apk add \
         maven \
         musl \
-        openjdk8 \
+        openjdk11 \
  && true
+
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+ENV PATH="$JAVA_HOME/bin:$PATH"
 
 WORKDIR /build
 
 RUN git init --quiet \
  && git remote add origin $REPO \
- && git fetch origin master \
+ && git fetch origin $TAG \
  && git reset --hard FETCH_HEAD \
  && true
 
@@ -25,9 +28,8 @@ COPY java /java
 WORKDIR /java
 
 RUN version=$TAG \
- && version=${version#snakeengine-} \
- && mvn clean compile -Dsnakeengineversion="$version" \
- && mvn assembly:single -Dsnakeengineversion="$version" \
+ && version=${version#snakeyaml-engine-} \
+ && mvn clean package -DskipTests -Dsnakeengineversion="$version" \
  && true
 
 RUN mkdir -p /export/java \

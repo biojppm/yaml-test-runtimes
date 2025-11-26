@@ -24,6 +24,10 @@ RUN cp -r \
  && cp -r \
         /usr/local/lib/lua \
         /export/usr/local/lib/ \
+ && mkdir -p /export/usr/bin \
+ && cp /usr/bin/lua* /export/usr/bin/ \
+ && mkdir -p /export/usr/lib \
+ && cp -P /usr/lib/liblua* /export/usr/lib/ \
  && true
 
 COPY bin/* /export/usr/local/bin/

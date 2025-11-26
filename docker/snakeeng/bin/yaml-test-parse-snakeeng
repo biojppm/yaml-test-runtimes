@@ -2,4 +2,4 @@
 
 set -e
 
-java -cp /java/snakeengine2events-*-jar-with-dependencies.jar org.yaml.editor.SnakeEngine2Events
+/usr/lib/jvm/java-11-openjdk/bin/java -cp /java/snakeengine2events-*-jar-with-dependencies.jar org.yaml.editor.SnakeEngine2Events

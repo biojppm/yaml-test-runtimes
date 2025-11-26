@@ -55,6 +55,7 @@ RUN apk update \
         libintl \
         lua \
         openjdk8-jre \
+        openjdk11-jre \
         nodejs \
         perl \
         python3 \

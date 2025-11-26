@@ -1,10 +1,7 @@
-module github.com/pantoniou/go-yaml-test
+module github.com/yaml/go-yaml-test
 
-go 1.16
+go 1.21
 
-replace gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b  => ../yaml
+replace go.yaml.in/yaml/v4 => ../yaml
 
-require (
-	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
-)
+require go.yaml.in/yaml/v4 v4.0.0-00010101000000-000000000000

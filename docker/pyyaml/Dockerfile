@@ -4,12 +4,12 @@ ARG TAG
 
 RUN apk add python3-dev
 
-RUN pip install pyyaml==$TAG
+RUN pip install --break-system-packages pyyaml==$TAG
 
-RUN mkdir -p /export/usr/lib/python3.9/site-packages \
+RUN mkdir -p /export/usr/lib/python3.12/site-packages \
  && cp -Pr \
-        /usr/lib/python3.9/site-packages/* \
-        /export/usr/lib/python3.9/site-packages/ \
+        /usr/lib/python3.12/site-packages/* \
+        /export/usr/lib/python3.12/site-packages/ \
  && true
 
 COPY bin/* /export/usr/local/bin/
